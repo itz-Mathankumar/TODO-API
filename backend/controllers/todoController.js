@@ -66,6 +66,15 @@ const todo = await Todo.findById(req.params.id)
 
   }
 
+  if (!req.body.title) 
+  {
+
+    res.status(400)
+
+    throw new Error('Please add a title')
+
+  }
+
   const updatedTodo = await Todo.findByIdAndUpdate(
 
     req.params.id, 
